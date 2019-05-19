@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>microservice-movie</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservice-movie</name>
 	<description>Demo project for Spring Boot</description>
