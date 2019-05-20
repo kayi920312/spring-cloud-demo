@@ -1,2 +1,15 @@
 server:
   port: 8082
+management:
+  security:
+    enabled: false
+spring:
+  application:
+    name: microservice-movie
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:8091/eureka/
+  instance:
+    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
+      
