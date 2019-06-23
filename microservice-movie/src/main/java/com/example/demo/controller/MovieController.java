@@ -38,6 +38,7 @@ public class MovieController {
 		
 		try {
 			JsonResult result = restTemplate.getForObject(USER_SERVICE_URL_BALANCE + GET_USERINFO + "id=" + id + "&name=" + name, JsonResult.class);
+			ServiceInstance userInstance = this.loadBalancerClient.choose("microservice-user");
 			return result;
 		} catch (Exception e) {
 			LOGGER.error("error: " + e.toString());
