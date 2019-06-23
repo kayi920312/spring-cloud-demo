@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>microservice-movie</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>microservice-movie</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -69,6 +69,14 @@
 	
 	<build>
 		<plugins>
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-surefire-plugin</artifactId>
+	            <configuration>
+	    			<!--true跳过测试-->
+	                <skipTests>true</skipTests>
+	            </configuration>
+	        </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8083
 spring:
   application:
     name: microservice-user
@@ -24,6 +24,6 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone:  http://root:123456789@localhost:8091/eureka/
+      defaultZone:  http://localhost:8091/eureka/
   instance:
     prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver    

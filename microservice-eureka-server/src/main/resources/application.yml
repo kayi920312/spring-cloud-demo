@@ -1,11 +1,9 @@
+spring:
+  application:
+    name: microservice-eureka-server
 server:
   port: 8091
-management:
-  security:
-    enabled: false
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://localhost:8091/eureka/
+    register-with-eureka: false
+    fetch-registry: false
