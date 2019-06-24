@@ -1,29 +1,40 @@
+#spring:
+#  application:
+#    name: microservice-eureka-server
+#    
+#---
+#spring:
+#  profiles: es1
+#server:
+#  port: 8091
+#eureka:
+#  instance:
+#    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
+##    hostname: peer1
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8092/eureka/
+#      
+#---
+#spring:
+#  profiles: es2
+#server:
+#  port: 8092
+#eureka:
+#  instance:
+#    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
+##    hostname: peer2
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8091/eureka/   
+
+
 spring:
   application:
     name: microservice-eureka-server
-    
----
-spring:
-  profiles: es1
 server:
   port: 8091
 eureka:
-  instance:
-    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
-#    hostname: peer1
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8092/eureka/
-      
----
-spring:
-  profiles: es2
-server:
-  port: 8092
-eureka:
-  instance:
-    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
-#    hostname: peer2
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8091/eureka/      
+    register-with-eureka: false
+    fetch-registry: false   
