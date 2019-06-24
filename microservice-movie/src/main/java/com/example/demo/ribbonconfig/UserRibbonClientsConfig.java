@@ -1,3 +1,4 @@
+package com.example.demo.ribbonconfig;
 //package com.example.demo.config;
 //
 //import org.springframework.cloud.netflix.ribbon.RibbonClients;

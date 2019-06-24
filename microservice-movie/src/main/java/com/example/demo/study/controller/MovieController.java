@@ -1,16 +1,18 @@
-package com.example.demo.controller;
+package com.example.demo.study.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.demo.common.JsonResult;
+import com.example.demo.ribbonconfig.UserRibbonClientConfig;
+import com.example.demo.study.bean.JsonResult;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,10 +20,11 @@ import io.swagger.annotations.ApiParam;
 
 @Api("userController相关api")
 @RestController
+@RibbonClient(name="microservice-user", configuration=UserRibbonClientConfig.class)
 public class MovieController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
-	private static final String USER_SERVICE_URL = "http://localhost:8081";
+//	private static final String USER_SERVICE_URL = "http://localhost:8081";
 	private static final String USER_SERVICE_URL_BALANCE = "http://microservice-user";
 	private static final String GET_USERINFO = "/userList?";
 	
@@ -38,7 +41,6 @@ public class MovieController {
 		
 		try {
 			JsonResult result = restTemplate.getForObject(USER_SERVICE_URL_BALANCE + GET_USERINFO + "id=" + id + "&name=" + name, JsonResult.class);
-			ServiceInstance userInstance = this.loadBalancerClient.choose("microservice-user");
 			return result;
 		} catch (Exception e) {
 			LOGGER.error("error: " + e.toString());

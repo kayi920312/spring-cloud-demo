@@ -1,6 +1,5 @@
-package com.example.demo.config;
+package com.example.demo.ribbonconfig;
 
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,11 +11,7 @@ import com.netflix.loadbalancer.RandomRule;
  * @author kaiying.chen
  */
 @Configuration
-@RibbonClient(name="microservice-user", configuration=UserRibbonConfig.class)
-public class UserRibbonClientConfig {}
-
-@Configuration
-class UserRibbonConfig {
+public class UserRibbonClientConfig {
 	@Bean
 	public IRule ribbonRule() {
 		return new RandomRule();
