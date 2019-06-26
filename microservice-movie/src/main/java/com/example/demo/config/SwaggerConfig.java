@@ -1,4 +1,4 @@
-package com.example.demo.study.config;
+package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class SwaggerConfig {
                 // 是否开启
                 .enable(true).select()
                 // 扫描的路径包
-                .apis(RequestHandlerSelectors.basePackage("com.example.demo.study.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
 //                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 // 指定路径处理PathSelectors.any()代表所有的路径
                 .paths(PathSelectors.any()).build();

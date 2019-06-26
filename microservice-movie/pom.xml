@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>microservice-movie-ribbon</artifactId>
+	<artifactId>microservice-movie</artifactId>
 	<version>0.0.1</version>
-	<name>microservice-movie-ribbon</name>
+	<name>microservice-movie</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

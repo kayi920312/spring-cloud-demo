@@ -1,8 +1,5 @@
 server:
   port: 8086
-#management:
-#  security:
-#    enabled: false
 spring:
   application:
     name: microservice-movie
@@ -12,3 +9,26 @@ eureka:
       defaultZone:  http://localhost:8091/eureka/,http://localhost:8092/eureka/
   instance:
     prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
+feign:
+  client:
+    config:
+      microservice-user:
+        connect-timeout: 5000
+        read-timeout: 5000
+#        logger-level: full #记录请求和响应的header，body和元素据
+#        logger-level: none #什么都不记录
+#        logger-level: basic #记录请求方法，URL，响应状态代码和执行时间
+        logger-level: headers #记录basic基础上，记录请求和响应的header
+logging:
+  level:
+    com.example.demo.feignInterface.UserFeignClient: debug
+microservice-user:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置规则 随机
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #配置规则 重试
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #配置规则 响应时间权重
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #配置规则 最空闲连接策略
+    OkToRetryOnAllOperations: true #对所有请求都进行重试
+    MaxAutoRetriesNextServer: 2 #切换实例的重试次数
+    MaxAutoRetries: 1 #对当前实例的重试次数 

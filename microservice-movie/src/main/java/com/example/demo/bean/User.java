@@ -1,4 +1,4 @@
-package com.example.demo.study.bean;
+package com.example.demo.bean;
 
 import java.math.BigDecimal;
 
