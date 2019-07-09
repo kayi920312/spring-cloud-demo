@@ -6,10 +6,12 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone:  http://localhost:8091/eureka/,http://localhost:8092/eureka/
+      defaultZone:  http://localhost:8091/eureka/
   instance:
     prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
 feign:
+  hystrix:
+    enabled: true
   client:
     config:
       microservice-user:
@@ -31,4 +33,4 @@ microservice-user:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #配置规则 最空闲连接策略
     OkToRetryOnAllOperations: true #对所有请求都进行重试
     MaxAutoRetriesNextServer: 2 #切换实例的重试次数
-    MaxAutoRetries: 1 #对当前实例的重试次数 
+    MaxAutoRetries: 1 #对当前实例的重试次数

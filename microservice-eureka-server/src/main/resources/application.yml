@@ -35,6 +35,10 @@ spring:
 server:
   port: 8091
 eureka:
+  instance:
+    prefer-ip-address: true #若为false，则将操作系统的hostname注册到eurekaserver，true则注册ip到eurekaserver
   client:
     register-with-eureka: false
-    fetch-registry: false   
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
